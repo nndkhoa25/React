@@ -1,59 +1,55 @@
-import React, { useCallback } from "react";
-import logowithoutbg from "../../assets/logos/logowithoutbg.png";
-import { Button } from "../../components";
-import icons from "../../ultils/icons";
-import { useNavigate } from "react-router-dom";
-import { path } from "../../ultils/constant";
-
-const { AiOutlinePlusCircle } = icons;
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
-  const goLogin = useCallback(() => {
-    navigate(path.LOGIN);
-  }, [navigate]);
+  useEffect(() => {
+    const status = localStorage.getItem("isLoggedIn");
+    setIsLoggedIn(status === "true");
+  }, []);
 
-  const goRegister = useCallback(() => {
-    navigate(path.REGISTER); // cần thêm path.REGISTER trong file constant.js
-  }, [navigate]);
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    setIsLoggedIn(false);
+    navigate("/");
+  };
 
   return (
-    <div className="w-[1100px]">
-      <div className="w-full flex items-center justify-between">
-        <img
-          src={logowithoutbg}
-          alt="Logo"
-          className="w-[240px] h-[70px] object-contain"
-        />
-        <div className="flex items-center gap-1">
-          <small>Phongtro123.com xin chào</small>
-          <Button
-            text="Đăng ký"
-            textColor="text-white"
-            bgColor="bg-[#3961fb]"
-            onClick={goRegister}
-          />
-          <Button
-            text="Đăng nhập"
-            textColor="text-white"
-            bgColor="bg-[#3961fb]"
-            onClick={goLogin}
-          />
-          <Button
-            text={
-              <span className="flex items-center gap-1">
-                Đăng tin mới
-                <AiOutlinePlusCircle className="text-lg" />
-              </span>
-            }
-            textColor="text-white"
-            bgColor="bg-red-500"
-            className="flex items-center justify-center"
-          />
-        </div>
+    <header className="py-4 w-full">
+      <div className="max-w-[1100px] mx-auto w-full px-4 flex justify-between items-center">
+        <h1 className="text-3xl font-bold">My Website</h1>
+        <nav className="space-x-4">
+          {isLoggedIn ? (
+            <>
+              <span>Xin chào, User!</span>
+              <button
+                onClick={handleLogout}
+                className="text-red-600 hover:underline ml-4"
+              >
+                Đăng xuất
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="text-blue-700 hover:underline font-semibold"
+              >
+                Đăng nhập
+              </Link>
+              <Link
+                to="/register"
+                className="text-blue-700 hover:underline font-semibold"
+              >
+                Đăng ký
+              </Link>
+            </>
+          )}
+        </nav>
       </div>
-    </div>
+    </header>
   );
 };
 

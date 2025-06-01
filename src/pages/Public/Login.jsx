@@ -1,7 +1,6 @@
-// src/pages/Login.jsx
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import Inputform from "../../components/Inputform"; // Đảm bảo đúng đường dẫn
+import Inputform from "../../components/Inputform";
 import { FaInstagram, FaFacebook, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
@@ -10,15 +9,14 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    console.log("Phone:", phone, "Password:", password); // Debug
-
     if (!phone.trim() || !password.trim()) {
       alert("Vui lòng nhập đầy đủ thông tin");
       return;
     }
 
-    // Lưu trạng thái đăng nhập và chuyển hướng về Home
+    // Giả lập đăng nhập thành công
     localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("userPhone", phone); // Lưu thông tin người dùng
     navigate("/");
   };
 

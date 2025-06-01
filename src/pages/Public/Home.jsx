@@ -1,35 +1,16 @@
-// src/pages/Home.js
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Header from "./Header";
 import Navigation from "./Navigation";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 const Home = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(null); // ❗️Ban đầu là null
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const loginStatus = localStorage.getItem("isLoggedIn");
-    if (loginStatus === "true") {
-      setIsLoggedIn(true);
-    } else {
-      setIsLoggedIn(false);
-      navigate("/login");
-    }
-  }, [navigate]);
-
-  // ❗ Đợi kiểm tra xong mới render
-  if (isLoggedIn === null) {
-    return null; // hoặc loading spinner
-  }
-
   return (
-    <div className="w-full flex flex-col items-center h-full">
+    <div className="flex flex-col min-h-screen w-full">
       <Header />
-      {isLoggedIn && <Navigation />}
-      <div className="w-full max-w-[1100px] flex flex-col items-center justify-start p-4">
+      <Navigation />
+      <main className="flex-grow max-w-5xl mx-auto p-4 w-full">
         <Outlet />
-      </div>
+      </main>
     </div>
   );
 };
