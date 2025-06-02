@@ -26,7 +26,7 @@ const Header = () => {
               <span>Xin chào, User!</span>
               <button
                 onClick={handleLogout}
-                className="text-red-600 hover:underline ml-4"
+                className="text-white hover:underline ml-4 border border-red-600 px-3 py-1 rounded bg-red-500"
               >
                 Đăng xuất
               </button>
@@ -35,13 +35,13 @@ const Header = () => {
             <>
               <Link
                 to="/login"
-                className="text-blue-700 hover:underline font-semibold"
+                className="text-white hover:underline font-semibold border px-3 py-1 rounded bg-blue-500"
               >
                 Đăng nhập
               </Link>
               <Link
                 to="/register"
-                className="text-blue-700 hover:underline font-semibold"
+                className="text-white hover:underline font-semibold border px-3 py-1 rounded bg-blue-500"
               >
                 Đăng ký
               </Link>
