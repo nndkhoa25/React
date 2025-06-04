@@ -35,13 +35,13 @@ const Header = () => {
             <>
               <Link
                 to="/login"
-                className="text-white hover:underline font-semibold border px-3 py-1 rounded bg-blue-500"
+                className="text-white hover:underline font-semibold border px-3 py-1 rounded-md bg-blue-500"
               >
                 Đăng nhập
               </Link>
               <Link
                 to="/register"
-                className="text-white hover:underline font-semibold border px-3 py-1 rounded bg-blue-500"
+                className="text-white hover:underline font-semibold border px-3 py-1 rounded-md bg-blue-500"
               >
                 Đăng ký
               </Link>
