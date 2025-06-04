@@ -17,7 +17,7 @@ const Header = () => {
   };
 
   return (
-    <header className="py-4 w-full">
+    <header className="py-4 w-full bg-white">
       <div className="max-w-[1100px] mx-auto w-full px-4 flex justify-between items-center">
         <h1 className="text-3xl font-bold">My Website</h1>
         <nav className="space-x-4">

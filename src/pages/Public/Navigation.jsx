@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 
 const navItems = [
   { name: "Trang chủ", path: "/trang-chu" },
-  { name: "Cho thuê phòng trọ", path: "/phong-tro" },
-  { name: "Nhà cho thuê", path: "/nha-cho-thue" },
-  { name: "Cho thuê căn hộ", path: "/can-ho" },
+  { name: "Nhà nguyên căn", path: "/phong-tro" },
+  { name: "Căn hộ chung cư", path: "/nha-cho-thue" },
+  { name: "Căn hộ mini", path: "/can-ho" },
   { name: "Cho thuê mặt bằng", path: "/mat-bang" },
   { name: "Tìm người ở ghép", path: "/ghep" },
   { name: "Blog", path: "/blog" },
